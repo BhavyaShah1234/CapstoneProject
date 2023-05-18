@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>CAPSTONE</title>
+    </head>
+    <body>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" class="image" id="image" accept=".jpg, .png, .jpeg">
+            <button type="submit">SUBMIT</button>
+        </form>
+        <br>
+        {% if mask_path and bbox_path %}
+            <h1>PREDICTED MASK</h1>
+            <img src="{{ mask_path }}" width="512" height="384">
+            <h1>PREDICTED BBOXES</h1>
+            <img src="{{ bbox_path }}" width="521" height="393">
+        {% else %}
+            <p>NO IMAGE UPLOADED</p>
+        {% endif %}
+    </body>
+</html>
